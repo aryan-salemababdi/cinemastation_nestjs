@@ -1,8 +1,32 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/cinemastation/src",
   "compilerOptions": {
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/cinemastation/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/cinemastation",
+  "projects": {
+    "cinemastation": {
+      "type": "application",
+      "root": "apps/cinemastation",
+      "entryFile": "main",
+      "sourceRoot": "apps/cinemastation/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/cinemastation/tsconfig.app.json"
+      }
+    },
+    "movies": {
+      "type": "application",
+      "root": "apps/movies",
+      "entryFile": "main",
+      "sourceRoot": "apps/movies/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/movies/tsconfig.app.json"
+      }
+    }
   }
 }
